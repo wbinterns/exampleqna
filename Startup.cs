@@ -34,6 +34,10 @@ namespace Microsoft.BotBuilderSamples
 
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
             services.AddTransient<IBot, QnABot>();
+            
+            // BELOW ARE ALL NEW STUFF ADDED FROM AN EXAMPLE
+            // Helper code that makes the actual HTTP calls to QnA Maker. It is injectable for local unit testing.
+            services.AddHttpClient<IQnAService, QnAService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

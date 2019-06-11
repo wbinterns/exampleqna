@@ -23,7 +23,7 @@ using Microsoft.Extensions.Configuration;
 
 //These have been added 1:09PM 6/11/2019
 using Microsoft.BotBuilderSamples.Bots;
-using Microsoft.BotBuilderSamples.Dialogs;
+//using Microsoft.BotBuilderSamples.Dialogs;
 
 namespace Microsoft.BotBuilderSamples
 {

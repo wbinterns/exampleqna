@@ -104,12 +104,13 @@ namespace Microsoft.BotBuilderSamples
             await _userState.SaveChangesAsync(turnContext);
         }
 
+        //INTRO CARD THAT SHOWS WHEN USER FIRST SAYS HELLO
         private static async Task SendIntroCardAsync(ITurnContext turnContext, CancellationToken cancellationToken)
         {
             var response = turnContext.Activity.CreateReply();
 
             var card = new HeroCard();
-            card.Title = "Welcome to Bot Framework!";
+            card.Title = "Welcome to Stream ChatBot!";
             card.Text = @"Welcome to Welcome Users bot sample! This Introduction card
                          is a great way to introduce your Bot to the user and suggest
                          some things to get them started. We use this opportunity to
@@ -117,9 +118,9 @@ namespace Microsoft.BotBuilderSamples
             card.Images = new List<CardImage>() { new CardImage("https://aka.ms/bf-welcome-card-image") };
             card.Buttons = new List<CardAction>()
             {
-                new CardAction(ActionTypes.OpenUrl, "Get an overview", null, "Get an overview", "Get an overview", "https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0"),
-                new CardAction(ActionTypes.OpenUrl, "Ask a question", null, "Ask a question", "Ask a question", "https://stackoverflow.com/questions/tagged/botframework"),
-                new CardAction(ActionTypes.OpenUrl, "Learn how to deploy", null, "Learn how to deploy", "Learn how to deploy", "https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0"),
+                new CardAction(ActionTypes.OpenUrl, "Go to Google", null, "Go to Google", "Go to Google", "https://www.google.com"),
+                new CardAction(ActionTypes.OpenUrl, "Take me to YouTube", null, "Take me to YouTube", "Take me to YouTube", "https://www.youtube.com"),
+                new CardAction(ActionTypes.OpenUrl, "Web Enclyclopedia", null, "Web Enclyclopedia", "Web Enclyclopedia", "https://www.wikipedia.org"),
             };
 
             response.Attachments = new List<Attachment>() { card.ToAttachment() };

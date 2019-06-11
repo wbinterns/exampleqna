@@ -29,18 +29,18 @@
     "actions": [
       {
         "type": "Action.OpenUrl",
-        "title": "Get an overview",
-        "url": "https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0"
+        "title": "Go to Google",
+        "url": "https://www.google.com"
       },
       {
         "type": "Action.OpenUrl",
-        "title": "Ask a question",
-        "url": "https://stackoverflow.com/questions/tagged/botframework"
+        "title": "Take me to YouTube",
+        "url": "https://www.youtube.com"
       },
       {
         "type": "Action.OpenUrl",
-        "title": "Learn how to deploy",
-        "url": "https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-deploy-azure?view=azure-bot-service-4.0"
+        "title": "Web Enclyclopedia",
+        "url": "https://www.wikipedia.org"
       }
     ]
   }

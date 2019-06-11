@@ -45,7 +45,7 @@ namespace Microsoft.BotBuilderSamples
             services.AddSingleton<ICredentialProvider, ConfigurationCredentialProvider>();
             
             // Helper code that makes the actual HTTP calls to QnA Maker. It is injectable for local unit testing.
-            services.AddHttpClient<IQnAService, QnAService>();
+            //services.AddHttpClient<IQnAService, QnAService>();
             
             // Create the storage we'll be using for User and Conversation state. (Memory is great for testing purposes.) 
             services.AddSingleton<IStorage, MemoryStorage>();

@@ -68,20 +68,22 @@ namespace Microsoft.BotBuilderSamples
             return hostname;
            
         }
-//          //trying to make buttons happen 
-//          private static async Task SendSuggestedActionsAsync(ITurnContext turnContext, CancellationToken cancellationToken)
-//  {
-//      var reply = turnContext.Activity.CreateReply("What is your favorite color?");
-//      reply.SuggestedActions = new SuggestedActions()
-//      {
-//          Actions = new List<CardAction>()
-//          {
-//              new CardAction() { Title = "Red", Type = ActionTypes.ImBack, Value = "Red" },
-//              new CardAction() { Title = "Yellow", Type = ActionTypes.ImBack, Value = "Yellow" },
-//              new CardAction() { Title = "Blue", Type = ActionTypes.ImBack, Value = "Blue" },
-//          },
-//      };
-//      await turnContext.SendActivityAsync(reply, cancellationToken);
-//  }
+
+        //trying to make buttons happen 
+        // private static async Task SendSuggestedActionsAsync(ITurnContext turnContext, CancellationToken cancellationToken)
+        // {
+        //     var reply = turnContext.Activity.CreateReply("What is your favorite color?");
+        //     reply.SuggestedActions = new SuggestedActions()
+        //     {
+        //         Actions = new List<CardAction>()
+        //         {
+        //             new CardAction() { Title = "Red", Type = ActionTypes.ImBack, Value = "Red" },
+        //             new CardAction() { Title = "Yellow", Type = ActionTypes.ImBack, Value = "Yellow" },
+        //             new CardAction() { Title = "Blue", Type = ActionTypes.ImBack, Value = "Blue" },
+        //         },
+        //     };
+        //       await turnContext.SendActivityAsync(reply, cancellationToken);
+        // }
+        //commented out bcs of error
     }
 }

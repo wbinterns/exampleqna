@@ -2,9 +2,8 @@
 // Licensed under the MIT License.
 
 /*
-THIS IS SOME BULLCRAP TEXT PLEASE PLEASE WORK 
-Y WONT U WORK 
-*/
+CHANGING THIS MEANINGLESS TEXT FOR A TEST
+ */
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -46,7 +45,9 @@ namespace Microsoft.BotBuilderSamples
             
             // Helper code that makes the actual HTTP calls to QnA Maker. It is injectable for local unit testing.
             //services.AddHttpClient<IQnAService, QnAService>();
-            
+            // commented out bcs of error
+
+
             // Create the storage we'll be using for User and Conversation state. (Memory is great for testing purposes.) 
             services.AddSingleton<IStorage, MemoryStorage>();
 

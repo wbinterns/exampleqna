@@ -36,6 +36,9 @@ namespace Microsoft.BotBuilderSamples
             services.AddTransient<IBot, QnABot>();
             
             // BELOW ARE ALL NEW STUFF ADDED FROM AN EXAMPLE
+             // Create the credential provider to be used with the Bot Framework Adapter.
+            services.AddSingleton<ICredentialProvider, ConfigurationCredentialProvider>();
+            
             // Helper code that makes the actual HTTP calls to QnA Maker. It is injectable for local unit testing.
             services.AddHttpClient<IQnAService, QnAService>();
             

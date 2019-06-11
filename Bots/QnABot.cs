@@ -53,7 +53,7 @@ namespace Microsoft.BotBuilderSamples
             }
             else
             {
-                await turnContext.SendActivityAsync(MessageFactory.Text("No QnA Maker answers were found."), cancellationToken);
+                await turnContext.SendActivityAsync(MessageFactory.Text("I'm sorry I don't understand. Please try again."), cancellationToken);
             }
         }
 
@@ -94,9 +94,6 @@ namespace Microsoft.BotBuilderSamples
                 Content = JsonConvert.DeserializeObject(adaptiveCard),
             };
         }
-
-
-
 
         private string GetHostname()
         {

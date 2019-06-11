@@ -13,7 +13,7 @@
         "spacing": "medium",
         "size": "default",
         "weight": "bolder",
-        "text": "Welcome to Bot Framework!",
+        "text": "Welcome Stream ChatBot!",
         "wrap": true,
         "maxLines": 0
       },
@@ -21,7 +21,7 @@
         "type": "TextBlock",
         "size": "default",
         "isSubtle": "yes",
-        "text": "Now that you have successfully run your bot, follow the links in this Adaptive Card to expand your knowledge of Bot Framework.",
+        "text": "These are the most searched sites! Please click one of the options or feel free to ask me anything!",
         "wrap": true,
         "maxLines": 0
       }

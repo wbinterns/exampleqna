@@ -10,6 +10,10 @@ using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
+//added from Ryan's code
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
 namespace Microsoft.BotBuilderSamples
 {
     public class QnABot : ActivityHandler
@@ -52,6 +56,47 @@ namespace Microsoft.BotBuilderSamples
             }
         }
 
+        //added from Ryan's code
+        protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
+        {
+            foreach (var member in membersAdded)
+            {
+                // Greet anyone that was not the target (recipient) of this message.
+                // To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards for more details.
+                if (member.Id != turnContext.Activity.Recipient.Id)
+                {
+                    var welcomeCard = CreateAdaptiveCardAttachment();
+                    var response = CreateResponse(turnContext.Activity, welcomeCard);
+                    await turnContext.SendActivityAsync(response, cancellationToken);
+                }
+            }
+        }
+
+        // Create an attachment message response.
+        private Activity CreateResponse(IActivity activity, Attachment attachment)
+        {
+            var response = ((Activity)activity).CreateReply();
+            response.Attachments = new List<Attachment>() { attachment };
+            return response;
+        }
+
+        // Load attachment from file.
+        private Attachment CreateAdaptiveCardAttachment()
+        {
+            // combine path for cross platform support
+            string[] paths = { ".", "Cards", "welcomeCard.json" };
+            string fullPath = Path.Combine(paths);
+            var adaptiveCard = File.ReadAllText(fullPath);
+            return new Attachment()
+            {
+                ContentType = "application/vnd.microsoft.card.adaptive",
+                Content = JsonConvert.DeserializeObject(adaptiveCard),
+            };
+        }
+
+
+
+
         private string GetHostname()
         {
             var hostname = _configuration["QnAEndpointHostName"];
@@ -66,24 +111,8 @@ namespace Microsoft.BotBuilderSamples
             }
 
             return hostname;
-           
+
         }
 
-        //trying to make buttons happen 
-        // private static async Task SendSuggestedActionsAsync(ITurnContext turnContext, CancellationToken cancellationToken)
-        // {
-        //     var reply = turnContext.Activity.CreateReply("What is your favorite color?");
-        //     reply.SuggestedActions = new SuggestedActions()
-        //     {
-        //         Actions = new List<CardAction>()
-        //         {
-        //             new CardAction() { Title = "Red", Type = ActionTypes.ImBack, Value = "Red" },
-        //             new CardAction() { Title = "Yellow", Type = ActionTypes.ImBack, Value = "Yellow" },
-        //             new CardAction() { Title = "Blue", Type = ActionTypes.ImBack, Value = "Blue" },
-        //         },
-        //     };
-        //       await turnContext.SendActivityAsync(reply, cancellationToken);
-        // }
-        //commented out bcs of error
     }
 }
